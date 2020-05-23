@@ -22,4 +22,8 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release --no-restore
     - name: Test
-      run: dotnet test /p:CollectCoverage=true --no-restore --verbosity normal
+      run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput='./coverage.xml' --no-restore --verbosity normal 
+    - uses: codecov/codecov-action@v1
+    - name: Publish code coverage to codecov
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
