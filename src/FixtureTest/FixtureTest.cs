@@ -8,14 +8,23 @@ namespace FixtureTest
 {
     public class FixtureTest : IFixture
     {
-        public IFixture Fixture { get; } = new Fixture();
+        public FixtureTest() : this(new Fixture()) { }
+
+        public FixtureTest(IFixture fixture) => Fixture = fixture;
+
+        public IFixture Fixture { get; }
         public IList<ISpecimenBuilderTransformation> Behaviors => Fixture.Behaviors;
-
         public IList<ISpecimenBuilder> Customizations => Fixture.Customizations;
-
-        public bool OmitAutoProperties { get => Fixture.OmitAutoProperties; set => Fixture.OmitAutoProperties = value; }
-        public int RepeatCount { get => Fixture.RepeatCount; set => Fixture.RepeatCount = value; }
-
+        public bool OmitAutoProperties
+        {
+            get => Fixture.OmitAutoProperties;
+            set => Fixture.OmitAutoProperties = value;
+        }
+        public int RepeatCount
+        {
+            get => Fixture.RepeatCount;
+            set => Fixture.RepeatCount = value;
+        }
         public IList<ISpecimenBuilder> ResidueCollectors => Fixture.ResidueCollectors;
 
         public ICustomizationComposer<T> Build<T>() => Fixture.Build<T>();
