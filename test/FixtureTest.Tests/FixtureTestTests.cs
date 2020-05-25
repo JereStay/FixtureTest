@@ -45,6 +45,63 @@ namespace FixtureTest.Tests
         }
 
         [Fact]
+        public void GetOmitAutoPropertiesGetsFixtureOmitAutoProperties()
+        {
+            var uut = new FixtureTest();
+            uut.Fixture.OmitAutoProperties = true;
+            var expectedOmitAutoProperties = uut.Fixture.OmitAutoProperties;
+
+            var actualOmitAutoProperties = uut.OmitAutoProperties;
+
+            actualOmitAutoProperties.Should().Be(expectedOmitAutoProperties);
+        }
+
+        [Fact]
+        public void SetOmitAutoPropertiesSetsFixtureOmitAutoProperties()
+        {
+            var uut = new FixtureTest();
+
+            uut.OmitAutoProperties = true;
+
+            uut.OmitAutoProperties.Should().Be(uut.Fixture.OmitAutoProperties);
+        }
+
+        [Fact]
+        public void GetRepeatCountGetsFixtureRepeatCount()
+        {
+            var uut = new FixtureTest();
+            uut.Fixture.RepeatCount = 4;
+            var expectedRepeatCount = uut.Fixture.RepeatCount;
+
+            var actualRepeatCount = uut.RepeatCount;
+
+            actualRepeatCount.Should().Be(expectedRepeatCount);
+        }
+
+        [Fact]
+        public void SetRepeatCountSetsFixtureRepeatCount()
+        {
+            var uut = new FixtureTest();
+
+            uut.RepeatCount = 4;
+
+            uut.RepeatCount.Should().Be(uut.Fixture.RepeatCount);
+        }
+
+        [Fact]
+        public void CreateCallsWrappedIFixture()
+        {
+            var mockIFixture = Substitute.For<IFixture>();
+            var mockICloneable = Substitute.For<ICloneable>();
+            var mockISpecimenContext = Substitute.For<ISpecimenContext>();
+            var uut = new FixtureTest(mockIFixture);
+
+            _ = uut.Create(mockICloneable, mockISpecimenContext);
+
+            mockIFixture.Received().Create(mockICloneable, mockISpecimenContext);
+        }
+
+        [Fact]
         public void BuildCallsWrappedIFixture()
         {
             var mockIFixture = Substitute.For<IFixture>();
@@ -82,7 +139,7 @@ namespace FixtureTest.Tests
         }
 
         [Fact]
-        public void CreateCallsWrappedIFixture()
+        public void CreateCallsWrappedIFixtureWithExtension()
         {
             var mockIFixture = Substitute.For<IFixture>();
             var uut = new FixtureTest(mockIFixture);
