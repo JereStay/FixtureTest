@@ -14,7 +14,7 @@ namespace FixtureTest.Tests
         [Fact]
         public void InitializedWithReferenceToFixtureBehaviors()
         {
-            var uut = new FixtureTest();
+            var uut = new AutoFixtureTest();
             var expectedBehaviors = uut.Fixture.Behaviors;
 
             var actualBehaviors = uut.Behaviors;
@@ -25,7 +25,7 @@ namespace FixtureTest.Tests
         [Fact]
         public void InitializedWithReferenceToFixtureCustomizations()
         {
-            var uut = new FixtureTest();
+            var uut = new AutoFixtureTest();
             var expectedCustomizations = uut.Fixture.Customizations;
 
             var actualCustomizations = uut.Customizations;
@@ -36,7 +36,7 @@ namespace FixtureTest.Tests
         [Fact]
         public void InitializedWithReferenceToFixtureResidueCollectors()
         {
-            var uut = new FixtureTest();
+            var uut = new AutoFixtureTest();
             var expectedResidueCollectors = uut.Fixture.ResidueCollectors;
 
             var actualResidueCollectors = uut.ResidueCollectors;
@@ -47,7 +47,7 @@ namespace FixtureTest.Tests
         [Fact]
         public void GetOmitAutoPropertiesGetsFixtureOmitAutoProperties()
         {
-            var uut = new FixtureTest();
+            var uut = new AutoFixtureTest();
             uut.Fixture.OmitAutoProperties = true;
             var expectedOmitAutoProperties = uut.Fixture.OmitAutoProperties;
 
@@ -59,7 +59,7 @@ namespace FixtureTest.Tests
         [Fact]
         public void SetOmitAutoPropertiesSetsFixtureOmitAutoProperties()
         {
-            var uut = new FixtureTest();
+            var uut = new AutoFixtureTest();
 
             uut.OmitAutoProperties = true;
 
@@ -69,7 +69,7 @@ namespace FixtureTest.Tests
         [Fact]
         public void GetRepeatCountGetsFixtureRepeatCount()
         {
-            var uut = new FixtureTest();
+            var uut = new AutoFixtureTest();
             uut.Fixture.RepeatCount = 4;
             var expectedRepeatCount = uut.Fixture.RepeatCount;
 
@@ -81,7 +81,7 @@ namespace FixtureTest.Tests
         [Fact]
         public void SetRepeatCountSetsFixtureRepeatCount()
         {
-            var uut = new FixtureTest();
+            var uut = new AutoFixtureTest();
 
             uut.RepeatCount = 4;
 
@@ -94,7 +94,7 @@ namespace FixtureTest.Tests
             var mockIFixture = Substitute.For<IFixture>();
             var mockICloneable = Substitute.For<ICloneable>();
             var mockISpecimenContext = Substitute.For<ISpecimenContext>();
-            var uut = new FixtureTest(mockIFixture);
+            var uut = new AutoFixtureTest(mockIFixture);
 
             _ = uut.Create(mockICloneable, mockISpecimenContext);
 
@@ -105,7 +105,7 @@ namespace FixtureTest.Tests
         public void BuildCallsWrappedIFixture()
         {
             var mockIFixture = Substitute.For<IFixture>();
-            var uut = new FixtureTest(mockIFixture);
+            var uut = new AutoFixtureTest(mockIFixture);
 
             _ = uut.Build<ICloneable>();
 
@@ -116,7 +116,7 @@ namespace FixtureTest.Tests
         public void CustomizeWithCustomizationCallsWrappedIFixture()
         {
             var mockIFixture = Substitute.For<IFixture>();
-            var uut = new FixtureTest(mockIFixture);
+            var uut = new AutoFixtureTest(mockIFixture);
             var mockICustomization = Substitute.For<ICustomization>();
 
             _ = uut.Customize(mockICustomization);
@@ -128,7 +128,7 @@ namespace FixtureTest.Tests
         public void CustomizeWithFuncCallsWrappedIFixture()
         {
             var mockIFixture = Substitute.For<IFixture>();
-            var uut = new FixtureTest(mockIFixture);
+            var uut = new AutoFixtureTest(mockIFixture);
             var mockICustomizationFunc =
                 Substitute.For<
                     Func<ICustomizationComposer<ICloneable>, ISpecimenBuilder>>();
@@ -142,7 +142,7 @@ namespace FixtureTest.Tests
         public void CreateCallsWrappedIFixtureWithExtension()
         {
             var mockIFixture = Substitute.For<IFixture>();
-            var uut = new FixtureTest(mockIFixture);
+            var uut = new AutoFixtureTest(mockIFixture);
 
             uut.Create<ICloneable>();
 
@@ -155,7 +155,7 @@ namespace FixtureTest.Tests
             var mockIFixture = Substitute.For<IFixture>();
             mockIFixture.Create(null, null)
                 .ReturnsForAnyArgs(Substitute.For<IEnumerable<ICloneable>>());
-            var uut = new FixtureTest(mockIFixture);
+            var uut = new AutoFixtureTest(mockIFixture);
 
             uut.CreateMany<ICloneable>();
 
@@ -168,7 +168,7 @@ namespace FixtureTest.Tests
             var mockIFixture = Substitute.For<IFixture>();
             mockIFixture.Create(null, null)
                 .ReturnsForAnyArgs(Substitute.For<IEnumerable<ICloneable>>());
-            var uut = new FixtureTest(mockIFixture);
+            var uut = new AutoFixtureTest(mockIFixture);
 
             uut.CreateMany<ICloneable>(4);
 
@@ -179,7 +179,7 @@ namespace FixtureTest.Tests
         public void FreezeCountCallsWrappedIFixture()
         {
             var mockIFixture = Substitute.For<IFixture>();
-            var uut = new FixtureTest(mockIFixture);
+            var uut = new AutoFixtureTest(mockIFixture);
 
             uut.Freeze<ICloneable>();
 
@@ -190,7 +190,7 @@ namespace FixtureTest.Tests
         public void FreezeWithFuncCountCallsWrappedIFixture()
         {
             var mockIFixture = Substitute.For<IFixture>();
-            var uut = new FixtureTest(mockIFixture);
+            var uut = new AutoFixtureTest(mockIFixture);
             Func<ICustomizationComposer<ICloneable>, ISpecimenBuilder>
                 composerTransformation = _ => Substitute.For<ISpecimenBuilder>();
 
@@ -204,7 +204,7 @@ namespace FixtureTest.Tests
         public void InjectCountCallsWrappedIFixture()
         {
             var mockIFixture = Substitute.For<IFixture>();
-            var uut = new FixtureTest(mockIFixture);
+            var uut = new AutoFixtureTest(mockIFixture);
 
             uut.Inject(Substitute.For<ICloneable>());
 

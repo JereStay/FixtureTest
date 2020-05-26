@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 namespace FixtureTest
 {
-    public class FixtureTest : IFixture
+    public class AutoFixtureTest : IFixture
     {
-        public FixtureTest() : this(new Fixture()) { }
+        public AutoFixtureTest() : this(new Fixture()) { }
 
-        public FixtureTest(IFixture fixture) => Fixture = fixture;
+        public AutoFixtureTest(IFixture fixture) => Fixture = fixture;
 
         public IFixture Fixture { get; }
         public IList<ISpecimenBuilderTransformation> Behaviors => Fixture.Behaviors;
