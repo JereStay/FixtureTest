@@ -46,5 +46,7 @@ namespace FixtureTest
         public T Freeze<T>(Func<ICustomizationComposer<T>, ISpecimenBuilder> composerTransformation) => Fixture.Freeze<T>(composerTransformation);
 
         public void Inject<T>(T item) => Fixture.Inject(item);
+
+        public void Register<T>(Func<T> creator) => Fixture.Register(creator);
     }
 }

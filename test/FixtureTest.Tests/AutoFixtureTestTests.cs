@@ -9,7 +9,7 @@ using Xunit;
 
 namespace FixtureTest.Tests
 {
-    public class FixtureTestTests
+    public class AutoFixtureTestTests
     {
         [Fact]
         public void InitializedWithReferenceToFixtureBehaviors()
@@ -176,7 +176,7 @@ namespace FixtureTest.Tests
         }
 
         [Fact]
-        public void FreezeCountCallsWrappedIFixture()
+        public void FreezeCallsWrappedIFixture()
         {
             var mockIFixture = Substitute.For<IFixture>();
             var uut = new AutoFixtureTest(mockIFixture);
@@ -207,6 +207,18 @@ namespace FixtureTest.Tests
             var uut = new AutoFixtureTest(mockIFixture);
 
             uut.Inject(Substitute.For<ICloneable>());
+
+            mockIFixture.Received()
+                .Customize(Arg.Any<Func<ICustomizationComposer<ICloneable>, ISpecimenBuilder>>());
+        }
+
+        [Fact]
+        public void RegisterCallsWrappedIFixture()
+        {
+            var mockIFixture = Substitute.For<IFixture>();
+            var uut = new AutoFixtureTest(mockIFixture);
+
+            uut.Register(() => Substitute.For<ICloneable>());
 
             mockIFixture.Received()
                 .Customize(Arg.Any<Func<ICustomizationComposer<ICloneable>, ISpecimenBuilder>>());
