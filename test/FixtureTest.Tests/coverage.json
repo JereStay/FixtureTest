@@ -1,0 +1,118 @@
+{
+  "FixtureTest.dll": {
+    "C:\\Users\\jerem\\source\\repos\\JereStay\\FixtureTest\\src\\FixtureTest\\FixtureTest.cs": {
+      "FixtureTest.FixtureTest": {
+        "AutoFixture.IFixture FixtureTest.FixtureTest::get_Fixture()": {
+          "Lines": {
+            "17": 4
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IList`1<AutoFixture.Kernel.ISpecimenBuilderTransformation> FixtureTest.FixtureTest::get_Behaviors()": {
+          "Lines": {
+            "18": 1
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IList`1<AutoFixture.Kernel.ISpecimenBuilder> FixtureTest.FixtureTest::get_Customizations()": {
+          "Lines": {
+            "19": 1
+          },
+          "Branches": []
+        },
+        "System.Boolean FixtureTest.FixtureTest::get_OmitAutoProperties()": {
+          "Lines": {
+            "20": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 FixtureTest.FixtureTest::get_RepeatCount()": {
+          "Lines": {
+            "21": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IList`1<AutoFixture.Kernel.ISpecimenBuilder> FixtureTest.FixtureTest::get_ResidueCollectors()": {
+          "Lines": {
+            "22": 0
+          },
+          "Branches": []
+        },
+        "AutoFixture.Dsl.ICustomizationComposer`1<T> FixtureTest.FixtureTest::Build()": {
+          "Lines": {
+            "24": 0
+          },
+          "Branches": []
+        },
+        "System.Object FixtureTest.FixtureTest::Create(System.Object,AutoFixture.Kernel.ISpecimenContext)": {
+          "Lines": {
+            "26": 0
+          },
+          "Branches": []
+        },
+        "AutoFixture.IFixture FixtureTest.FixtureTest::Customize(AutoFixture.ICustomization)": {
+          "Lines": {
+            "28": 0
+          },
+          "Branches": []
+        },
+        "System.Void FixtureTest.FixtureTest::Customize(System.Func`2<AutoFixture.Dsl.ICustomizationComposer`1<T>,AutoFixture.Kernel.ISpecimenBuilder>)": {
+          "Lines": {
+            "30": 0
+          },
+          "Branches": []
+        },
+        "T FixtureTest.FixtureTest::Create()": {
+          "Lines": {
+            "32": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<T> FixtureTest.FixtureTest::CreateMany()": {
+          "Lines": {
+            "34": 0
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<T> FixtureTest.FixtureTest::CreateMany(System.Int32)": {
+          "Lines": {
+            "36": 0
+          },
+          "Branches": []
+        },
+        "T FixtureTest.FixtureTest::Freeze()": {
+          "Lines": {
+            "38": 0
+          },
+          "Branches": []
+        },
+        "T FixtureTest.FixtureTest::Freeze(System.Func`2<AutoFixture.Dsl.ICustomizationComposer`1<T>,AutoFixture.Kernel.ISpecimenBuilder>)": {
+          "Lines": {
+            "40": 0
+          },
+          "Branches": []
+        },
+        "System.Void FixtureTest.FixtureTest::Inject(T)": {
+          "Lines": {
+            "42": 0
+          },
+          "Branches": []
+        },
+        "System.Void FixtureTest.FixtureTest::.ctor()": {
+          "Lines": {
+            "11": 2,
+            "12": 2,
+            "13": 2
+          },
+          "Branches": []
+        },
+        "System.Void FixtureTest.FixtureTest::.ctor(AutoFixture.IFixture)": {
+          "Lines": {
+            "15": 4
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}

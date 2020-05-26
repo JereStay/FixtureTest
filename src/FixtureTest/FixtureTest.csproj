@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>JereStay</Authors>
+    <Description>A .NET Standard library for test base class to short hand usage of AutoFixture.</Description>
+    <PackageProjectUrl>https://github.com/JereStay/FixtureTest</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/JereStay/FixtureTest</RepositoryUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <PackageReference Include="AutoFixture" Version="4.11.0" />
+  </ItemGroup>
+
+</Project>
