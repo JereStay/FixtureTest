@@ -5,6 +5,7 @@ using FluentAssertions;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace FixtureTest.Tests
@@ -222,6 +223,40 @@ namespace FixtureTest.Tests
 
             mockIFixture.Received()
                 .Customize(Arg.Any<Func<ICustomizationComposer<ICloneable>, ISpecimenBuilder>>());
+        }
+
+        [Fact]
+        public void Generic_Constructor_CustomizationSpecified_AddsCustomization()
+        {
+            var uut = new AutoFixtureTest<DelegatingCustomization>();
+
+            uut.Fixture.Customizations[0]
+                .Should()
+                .BeOfType<FakeSpecimenBuilder>();
+        }
+
+        internal class DelegatingCustomization : ICustomization
+        {
+            public DelegatingCustomization()
+            {
+                OnCustomize = _ => { };
+            }
+
+            public void Customize(IFixture fixture)
+            {
+                fixture.Customizations.Insert(0, new FakeSpecimenBuilder());
+                OnCustomize(fixture);
+            }
+
+            internal Action<IFixture> OnCustomize { get; set; }
+        }
+
+        internal class FakeSpecimenBuilder : ISpecimenBuilder
+        {
+            public object Create(object request, ISpecimenContext context)
+            {
+                return null;
+            }
         }
     }
 }

@@ -49,4 +49,14 @@ namespace FixtureTest
 
         public void Register<T>(Func<T> creator) => Fixture.Register(creator);
     }
+
+    public class AutoFixtureTest<T> : AutoFixtureTest where T : ICustomization
+    {
+        public AutoFixtureTest() : this(new Fixture()) { }
+
+        public AutoFixtureTest(IFixture fixture) : base(fixture)
+        {
+            Customize(Activator.CreateInstance<T>());
+        }
+    }
 }
